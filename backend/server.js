@@ -9,6 +9,7 @@ const cors = require('cors');
 const session = require('express-session');
 
 const db = require('./db/database');
+const seedDatabase = require('./db/seed');
 const { identifyOwner, requireAuth } = require('./middleware/auth');
 
 const productsRouter = require('./routes/products');
@@ -19,6 +20,11 @@ const wishlistRouter = require('./routes/wishlist');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const productCount = db.prepare('SELECT COUNT(*) as count FROM products').get().count;
+if (productCount === 0) {
+  console.log('База пустая — автоматически заполняю тестовыми товарами...');
+  seedDatabase();
+}
 
 // Разрешаем сайту принимать JSON в теле запросов (например, данные формы)
 app.use(express.json());
