@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXE MAISON — Мультибрендовый магазин одежды</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="site-logo">LUXE <span>MAISON</span></a>
+    <button class="mobile-nav-toggle" data-mobile-nav-toggle aria-label="Меню">☰</button>
+    <nav class="site-nav" data-site-nav>
+      <a href="index.html" class="active" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
+      <a href="wishlist.html" data-i18n="nav_wishlist">Избранное</a>
+    </nav>
+    <div class="header-actions">
+      <select class="lang-select" data-lang-select>
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="az">AZ</option>
+      </select>
+      <button class="theme-toggle" data-theme-toggle aria-label="Тема">◐</button>
+      <a href="cart.html" class="icon-link" data-i18n="nav_cart">Корзина<span class="icon-badge" data-cart-badge style="display:none">0</span></a>
+      <span data-auth-slot></span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="eyebrow" data-i18n="home_hero_subtitle">Стиль, комфорт и качество в каждой детали</span>
+  <h1 data-i18n="home_hero_title">Мультибрендовый магазин одежды и обуви</h1>
+  <a href="catalog.html" class="btn" data-i18n="home_hero_cta">Перейти в каталог</a>
+</section>
+
+<div class="container">
+  <h2 data-i18n="home_categories_title">Категории</h2>
+  <div class="category-grid">
+    <a class="category-tile" href="catalog.html?category=футболки">Футболки</a>
+    <a class="category-tile" href="catalog.html?category=джинсы">Джинсы</a>
+    <a class="category-tile" href="catalog.html?category=шорты">Шорты</a>
+    <a class="category-tile" href="catalog.html?category=толстовки">Толстовки</a>
+    <a class="category-tile" href="catalog.html?category=куртки">Куртки</a>
+    <a class="category-tile" href="catalog.html?category=кроссовки">Кроссовки</a>
+    <a class="category-tile" href="catalog.html?category=туфли">Туфли</a>
+    <a class="category-tile" href="catalog.html?category=платья">Платья</a>
+    <a class="category-tile" href="catalog.html?category=шубы">Шубы</a>
+  </div>
+
+  <hr class="divider">
+
+  <h2 data-i18n="home_bestsellers_title">Хиты продаж</h2>
+  <div class="product-grid" data-bestsellers-grid></div>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 LUXE MAISON — <span data-i18n="footer_rights">Все права защищены</span></p>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

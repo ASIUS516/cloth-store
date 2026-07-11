@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Корзина — LUXE MAISON</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="site-logo">LUXE <span>MAISON</span></a>
+    <button class="mobile-nav-toggle" data-mobile-nav-toggle aria-label="Меню">☰</button>
+    <nav class="site-nav" data-site-nav>
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
+      <a href="wishlist.html" data-i18n="nav_wishlist">Избранное</a>
+    </nav>
+    <div class="header-actions">
+      <select class="lang-select" data-lang-select>
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="az">AZ</option>
+      </select>
+      <button class="theme-toggle" data-theme-toggle aria-label="Тема">◐</button>
+      <a href="cart.html" class="icon-link active" data-i18n="nav_cart">Корзина<span class="icon-badge" data-cart-badge style="display:none">0</span></a>
+      <span data-auth-slot></span>
+    </div>
+  </div>
+</header>
+
+<div class="container" style="padding-top: 36px; padding-bottom: 80px;">
+  <div data-cart-page-content>
+    <h1 data-i18n="cart_title">Корзина</h1>
+
+    <div data-cart-empty style="display:none;">
+      <p data-i18n="cart_empty">Ваша корзина пуста</p>
+      <a href="catalog.html" class="btn btn-outline" data-i18n="cart_go_to_catalog">Перейти в каталог</a>
+    </div>
+
+    <div data-cart-list></div>
+
+    <div class="cart-summary" data-cart-summary style="display:none;">
+      <span data-i18n="cart_total">Итого</span>
+      <span data-cart-total>0 ₼</span>
+    </div>
+
+    <div data-checkout-section style="display:none; margin-top: 50px;">
+      <h2 data-i18n="checkout_title">Оформление заказа</h2>
+      <div class="form-error" data-checkout-error style="display:none;"></div>
+      <form data-checkout-form style="max-width: 460px;">
+        <div class="form-field">
+          <label data-i18n="checkout_name">Имя и фамилия</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-field">
+          <label data-i18n="checkout_address">Адрес доставки</label>
+          <input type="text" name="address" required>
+        </div>
+        <div class="form-field">
+          <label data-i18n="checkout_phone">Телефон</label>
+          <input type="tel" name="phone" required>
+        </div>
+        <button type="submit" class="btn btn-block" data-i18n="checkout_submit">Подтвердить заказ</button>
+      </form>
+    </div>
+  </div>
+
+  <div data-order-confirmation style="display:none;">
+    <h1 data-i18n="checkout_success_title">Заказ оформлен</h1>
+    <p><span data-i18n="checkout_success_text">Спасибо за заказ! Номер вашего заказа:</span> <strong data-order-id></strong></p>
+    <a href="catalog.html" class="btn" data-i18n="cart_go_to_catalog">Перейти в каталог</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 LUXE MAISON — <span data-i18n="footer_rights">Все права защищены</span></p>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,668 @@
+/* =========================================================
+   ШРИФТЫ
+   Playfair Display — заголовки (с засечками, выразительный)
+   Lora — основной текст (с засечками, спокойный, читаемый)
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* =========================================================
+   ЦВЕТОВЫЕ ПЕРЕМЕННЫЕ
+   Светлая тема — по умолчанию (на <body>)
+   Тёмная тема — класс .dark-theme на <body>
+========================================================= */
+:root {
+  --color-navy: #101A2E;
+  --color-burgundy: #6E1F33;
+  --color-gold: #C6A15B;
+  --color-gold-soft: #E7D5A8;
+  --color-black: #0B0B0C;
+
+  /* Светлая тема */
+  --bg-color: #F6F2EA;
+  --bg-color-alt: #EFE8DA;
+  --surface-color: #FFFFFF;
+  --text-color: #1B1B1D;
+  --text-muted: #6B6459;
+  --border-color: rgba(16, 26, 46, 0.14);
+  --accent-color: var(--color-burgundy);
+  --accent-contrast: #FFFFFF;
+}
+
+html.dark-theme {
+  --bg-color: #0D1220;
+  --bg-color-alt: #131B2E;
+  --surface-color: #161F33;
+  --text-color: #EDE8DC;
+  --text-muted: #A79E8C;
+  --border-color: rgba(198, 161, 91, 0.22);
+  --accent-color: var(--color-gold);
+  --accent-contrast: #101A2E;
+}
+
+/* =========================================================
+   БАЗОВЫЕ СБРОСЫ
+========================================================= */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.5em;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+button, input, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.eyebrow {
+  display: block;
+  font-family: 'Lora', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.6em;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2.5rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================================
+   ШАПКА САЙТА
+========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 16px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.site-logo span {
+  color: var(--accent-color);
+}
+
+.site-nav {
+  display: flex;
+  gap: 22px;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.icon-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: var(--accent-color);
+  color: var(--accent-contrast);
+  font-size: 0.65rem;
+  font-family: 'Lora', serif;
+  border-radius: 50%;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+.lang-select,
+.theme-toggle {
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-color);
+  border-radius: 3px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 6px 10px;
+}
+
+/* =========================================================
+   КНОПКИ
+========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 26px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--accent-color);
+  background: var(--accent-color);
+  color: var(--accent-contrast);
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover { opacity: 0.88; }
+.btn:active { transform: scale(0.98); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  opacity: 1;
+}
+
+.btn-small { padding: 8px 16px; font-size: 0.75rem; }
+.btn-block { width: 100%; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* =========================================================
+   ГЛАВНАЯ СТРАНИЦА
+========================================================= */
+.hero {
+  padding: 90px 24px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(198,161,91,0.10), transparent 45%),
+    var(--bg-color-alt);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  max-width: 780px;
+  margin: 0 auto 0.5em;
+}
+
+.hero p {
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 2em;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  padding: 60px 0;
+}
+
+.category-tile {
+  border: 1px solid var(--border-color);
+  padding: 28px 12px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.04em;
+  background: var(--surface-color);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.category-tile:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   СЕТКА ТОВАРОВ / КАРТОЧКА
+========================================================= */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 36px;
+  padding: 36px 0 80px;
+  align-items: start;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.product-card__view {
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--text-muted);
+  background: var(--bg-color-alt);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.product-card__angles {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.product-card__angles button {
+  flex: 1;
+  background: none;
+  border: none;
+  border-right: 1px solid var(--border-color);
+  padding: 6px 4px;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.product-card__angles button:last-child { border-right: none; }
+
+.product-card__angles button.active {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.product-card__body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.product-card__category {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.product-card__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.02rem;
+}
+
+.product-card__meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.product-card__price {
+  font-size: 1.05rem;
+  color: var(--accent-color);
+  margin-top: 6px;
+}
+
+.product-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.wishlist-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.wishlist-toggle.active {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* =========================================================
+   ФИЛЬТРЫ
+========================================================= */
+.filters {
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  padding: 20px;
+}
+
+.filters h3 {
+  font-size: 1rem;
+  margin-bottom: 1em;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+
+.filter-price-row {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-price-row input,
+.filter-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.search-sort-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+/* =========================================================
+   ФОРМЫ (логин, регистрация, checkout)
+========================================================= */
+.form-page {
+  max-width: 440px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+.form-error {
+  background: rgba(110, 31, 51, 0.1);
+  border: 1px solid var(--color-burgundy);
+  color: var(--color-burgundy);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+html.dark-theme .form-error {
+  color: #F0A6B8;
+}
+
+.form-success {
+  background: rgba(198, 161, 91, 0.12);
+  border: 1px solid var(--color-gold);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+/* =========================================================
+   КОРЗИНА / ЗАКАЗЫ
+========================================================= */
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cart-item__qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item__qty button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+}
+
+.cart-summary {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px solid var(--accent-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+}
+
+.order-card {
+  border: 1px solid var(--border-color);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  background: var(--surface-color);
+}
+
+/* =========================================================
+   ФУТЕР
+========================================================= */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-top: 60px;
+}
+
+/* =========================================================
+   ПАГИНАЦИЯ
+========================================================= */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.pagination button {
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  width: 36px;
+  height: 36px;
+}
+
+.pagination button.active {
+  background: var(--accent-color);
+  color: var(--accent-contrast);
+  border-color: var(--accent-color);
+}
+
+/* =========================================================
+   АДАПТИВНОСТЬ
+========================================================= */
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 16px 24px;
+    gap: 14px;
+  }
+
+  .site-nav.open { display: flex; }
+
+  .mobile-nav-toggle { display: block; }
+
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 84%;
+    height: 100%;
+    z-index: 100;
+    overflow-y: auto;
+    transition: left 0.25s ease;
+  }
+
+  .filters.open { left: 0; }
+
+  .filters-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 90;
+  }
+
+  .filters-overlay.open { display: block; }
+
+  .cart-item {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}

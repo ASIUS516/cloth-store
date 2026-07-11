@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каталог — LUXE MAISON</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="site-logo">LUXE <span>MAISON</span></a>
+    <button class="mobile-nav-toggle" data-mobile-nav-toggle aria-label="Меню">☰</button>
+    <nav class="site-nav" data-site-nav>
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" class="active" data-i18n="nav_catalog">Каталог</a>
+      <a href="wishlist.html" data-i18n="nav_wishlist">Избранное</a>
+    </nav>
+    <div class="header-actions">
+      <select class="lang-select" data-lang-select>
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="az">AZ</option>
+      </select>
+      <button class="theme-toggle" data-theme-toggle aria-label="Тема">◐</button>
+      <a href="cart.html" class="icon-link" data-i18n="nav_cart">Корзина<span class="icon-badge" data-cart-badge style="display:none">0</span></a>
+      <span data-auth-slot></span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="search-sort-bar" style="margin-top: 24px;">
+    <input type="text" class="search-input" data-search-input placeholder="Поиск по каталогу" data-i18n-placeholder="search_placeholder">
+    <select class="lang-select" data-sort-select style="width:auto;">
+      <option value="newest" data-i18n="sort_newest">Сначала новые</option>
+      <option value="price_asc" data-i18n="sort_price_asc">Сначала дешевле</option>
+      <option value="price_desc" data-i18n="sort_price_desc">Сначала дороже</option>
+    </select>
+    <button class="btn btn-outline mobile-nav-toggle" data-filters-toggle style="display:none;" data-i18n="filters_title">Фильтры</button>
+  </div>
+
+  <div class="catalog-layout">
+    <aside class="filters" data-filters>
+      <h3 data-i18n="filters_title">Фильтры</h3>
+
+      <div class="filter-group">
+        <span class="filter-group__label" data-i18n="filters_category">Категория</span>
+        <div data-category-filter></div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-group__label" data-i18n="filters_price">Цена</span>
+        <div class="filter-price-row">
+          <input type="number" data-price-min placeholder="От" data-i18n-placeholder="filters_price_from">
+          <input type="number" data-price-max placeholder="До" data-i18n-placeholder="filters_price_to">
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-group__label" data-i18n="filters_size">Размер</span>
+        <div data-size-filter></div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-group__label" data-i18n="filters_color">Цвет</span>
+        <select data-color-filter>
+          <option value="" data-i18n="filters_color">Все цвета</option>
+        </select>
+      </div>
+
+      <button class="btn btn-block" data-filters-apply data-i18n="filters_apply">Применить</button>
+      <button class="btn btn-outline btn-block" data-filters-reset style="margin-top:8px;" data-i18n="filters_reset">Сбросить фильтры</button>
+    </aside>
+    <div class="filters-overlay" data-filters-overlay></div>
+
+    <main>
+      <div class="product-grid" data-product-grid></div>
+      <div class="pagination" data-pagination></div>
+    </main>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 LUXE MAISON — <span data-i18n="footer_rights">Все права защищены</span></p>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script src="js/catalog.js"></script>
+<script>
+  // Показываем кнопку "Фильтры" только на мобильном (управляется через CSS media query,
+  // но display:none в инлайне выше надо снять через CSS класса, а не JS)
+</script>
+<style>
+  @media (max-width: 768px) {
+    [data-filters-toggle] { display: inline-flex !important; }
+  }
+</style>
+</body>
+</html>
