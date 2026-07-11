@@ -234,4 +234,8 @@ function seed() {
   console.log(`Готово! Добавлено товаров: ${products.length}`);
 }
 
-seed();
+module.exports = seed;
+
+if (require.main === module) {
+  seed();
+}
