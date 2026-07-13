@@ -33,6 +33,9 @@
   "product_size": "Ölçü",
   "product_color": "Rəng",
   "no_products_found": "Məhsul tapılmadı. Filtrləri dəyişməyə çalışın.",
+  "product_back_to_catalog": "← Kataloqa qayıt",
+  "product_not_found": "Məhsul tapılmadı",
+  "product_description_title": "Təsvir",
 
   "cart_title": "Səbət",
   "cart_empty": "Səbətiniz boşdur",

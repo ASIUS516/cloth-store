@@ -12,14 +12,18 @@ async function loadBestsellers() {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.innerHTML = `
-      <div class="product-card__view">${product.view_front_text}</div>
-      <div class="product-card__body">
-        <span class="product-card__category">${product.category}</span>
-        <h3 class="product-card__name">${escapeHtml(product.name)}</h3>
-        <span class="product-card__price">${product.price.toLocaleString()} ₼</span>
-        <div class="product-card__actions">
-          <a href="catalog.html" class="btn btn-outline btn-small btn-block" data-i18n="product_add_to_cart">${i18n.t('product_add_to_cart')}</a>
+      <a class="product-card__media-link" href="product.html?id=${product.id}">
+        <div class="product-card__view">${product.view_front_text}</div>
+      </a>
+      <a class="product-card__body-link" href="product.html?id=${product.id}">
+        <div class="product-card__body">
+          <span class="product-card__category">${product.category}</span>
+          <h3 class="product-card__name">${escapeHtml(product.name)}</h3>
+          <span class="product-card__price">${product.price.toLocaleString()} ₼</span>
         </div>
+      </a>
+      <div class="product-card__actions">
+        <a href="product.html?id=${product.id}" class="btn btn-outline btn-small btn-block" data-i18n="product_add_to_cart">${i18n.t('product_add_to_cart')}</a>
       </div>
     `;
     grid.appendChild(card);

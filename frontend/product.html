@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXE MAISON</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="site-logo">LUXE <span>MAISON</span></a>
+    <button class="mobile-nav-toggle" data-mobile-nav-toggle aria-label="Меню">☰</button>
+    <nav class="site-nav" data-site-nav>
+      <a href="index.html" data-i18n="nav_home">Главная</a>
+      <a href="catalog.html" data-i18n="nav_catalog">Каталог</a>
+      <a href="wishlist.html" data-i18n="nav_wishlist">Избранное</a>
+    </nav>
+    <div class="header-actions">
+      <select class="lang-select" data-lang-select>
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="az">AZ</option>
+      </select>
+      <button class="theme-toggle" data-theme-toggle aria-label="Тема">◐</button>
+      <a href="cart.html" class="icon-link" data-i18n="nav_cart">Корзина<span class="icon-badge" data-cart-badge style="display:none">0</span></a>
+      <span data-auth-slot></span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <a href="catalog.html" class="breadcrumb" data-i18n="product_back_to_catalog">← Назад в каталог</a>
+
+  <div data-product-root>
+    <p data-loading-text>…</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 LUXE MAISON — <span data-i18n="footer_rights">Все права защищены</span></p>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+<script src="js/product.js"></script>
+</body>
+</html>

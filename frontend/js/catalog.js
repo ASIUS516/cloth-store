@@ -189,20 +189,24 @@ function renderProductCard(product, isWishlisted) {
 
   card.innerHTML = `
     <button class="wishlist-toggle ${isWishlisted ? 'active' : ''}" data-wishlist-btn data-id="${product.id}" aria-label="${i18n.t('product_add_to_wishlist')}">${isWishlisted ? '♥' : '♡'}</button>
-    <div class="product-card__view" data-view-text>${product.view_front_text}</div>
+    <a class="product-card__media-link" href="product.html?id=${product.id}">
+      <div class="product-card__view" data-view-text>${product.view_front_text}</div>
+    </a>
     <div class="product-card__angles">
       <button class="active" data-angle="front" data-i18n="view_front">${i18n.t('view_front')}</button>
       <button data-angle="side" data-i18n="view_side">${i18n.t('view_side')}</button>
       <button data-angle="back" data-i18n="view_back">${i18n.t('view_back')}</button>
     </div>
-    <div class="product-card__body">
-      <span class="product-card__category">${capitalize(product.category)}</span>
-      <h3 class="product-card__name">${escapeHtml(product.name)}</h3>
-      <span class="product-card__meta">${i18n.t('product_size')}: ${product.size} · ${i18n.t('product_color')}: ${product.color}</span>
-      <span class="product-card__price">${product.price.toLocaleString()} ₼</span>
-      <div class="product-card__actions">
-        <button class="btn btn-small btn-block" data-add-to-cart data-id="${product.id}" data-i18n="product_add_to_cart">${i18n.t('product_add_to_cart')}</button>
+    <a class="product-card__body-link" href="product.html?id=${product.id}">
+      <div class="product-card__body">
+        <span class="product-card__category">${capitalize(product.category)}</span>
+        <h3 class="product-card__name">${escapeHtml(product.name)}</h3>
+        <span class="product-card__meta">${i18n.t('product_size')}: ${product.size} · ${i18n.t('product_color')}: ${product.color}</span>
+        <span class="product-card__price">${product.price.toLocaleString()} ₼</span>
       </div>
+    </a>
+    <div class="product-card__actions">
+      <button class="btn btn-small btn-block" data-add-to-cart data-id="${product.id}" data-i18n="product_add_to_cart">${i18n.t('product_add_to_cart')}</button>
     </div>
   `;
 
