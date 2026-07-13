@@ -11,6 +11,16 @@ const session = require('express-session');
 const db = require('./db/database');
 const { identifyOwner, requireAuth } = require('./middleware/auth');
 
+// Если таблица товаров пустая (например, свежий деплой на Render, где
+// диск эфемерный и database.db создаётся с нуля) — сразу засеиваем
+// тестовыми товарами, чтобы каталог не был пустым.
+const { count } = db.prepare('SELECT COUNT(*) AS count FROM products').get();
+if (count === 0) {
+  console.log('База товаров пустая — запускаю автозаполнение...');
+  const seed = require('./db/seed');
+  seed();
+}
+
 const productsRouter = require('./routes/products');
 const cartRouter = require('./routes/cart');
 const ordersRouter = require('./routes/orders');

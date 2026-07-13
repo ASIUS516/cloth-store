@@ -46,6 +46,11 @@ html.dark-theme {
 
 html { scroll-behavior: smooth; }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background: var(--bg-color);
@@ -838,6 +843,14 @@ html.dark-theme .form-error {
   .product-detail__actions .btn {
     min-width: 0;
     flex: 1;
+  }
+
+  .form-page {
+    padding: 0 16px;
+  }
+
+  .icon-badge {
+    right: -8px;
   }
 }
 
