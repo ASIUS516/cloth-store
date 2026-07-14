@@ -761,12 +761,25 @@ html.dark-theme .form-error {
 
   .site-header__inner {
     flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 12px;
+  }
+
+  .site-logo {
+    order: 1;
+    flex-basis: 100%;
+    text-align: center;
   }
 
   .header-actions {
-    flex-basis: 100%;
-    justify-content: flex-end;
-    margin-top: 10px;
+    order: 2;
+    flex: 1;
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+
+  .mobile-nav-toggle {
+    order: 3;
   }
 
   .catalog-layout {
